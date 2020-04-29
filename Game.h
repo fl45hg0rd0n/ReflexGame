@@ -2,7 +2,7 @@
 
 #define GAME_H
 
-
+#include "Arduino.h"
 #include "gameDefines.h"
 
 class Game
