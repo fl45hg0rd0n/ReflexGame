@@ -3,6 +3,7 @@
 
 #include "Arduino.h"
 
+const int I2C_DEVICE_NUMBER = 4;
 
 enum GameType
 {
@@ -10,7 +11,6 @@ enum GameType
    GT_SPEED_GAME
 
 };
-
 
 enum GameState
 {
@@ -21,7 +21,6 @@ enum GameState
    GAMEOVER
 };
 
-
 enum Difficulty
 {
    NEWB,
@@ -30,15 +29,15 @@ enum Difficulty
    HELL
 };
 
-
 enum SoundMessage
 {
    BOOTUP,
    CHOOSE_GAME,
    REFLEX_GAME_BOOTUP,
    SPEED_GAME_BOOTUP,
+   GAME_ON,
    NEW_BUTTON,
-   CORRECT_BUTTON,
+   CORRECT_BUTTONn ,
    WRONG_BUTTON,
    TOO_SLOW,
    AGAIN

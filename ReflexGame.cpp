@@ -7,27 +7,49 @@ ReflexGame::ReflexGame()
 	, m_scoreBest = 0
 	, m_fastestTime = 0
 	, m_state = READY
-	, m_difficulty
+	, m_difficulty = NEWB
 {};
 
 ReflexGame::~ReflexGame(){};
 
-int ReflexGame::Play(int delayTime,
+int ReflexGame::Play(unsigned long delayTime,
                      int[] lights,
                      int iterations,
                      &ButtonHelper buttons,
 			 		 &TimerHelper timer,
-			 		 &DisplayHelper)
+			 		 &DisplayHelper display,
+			 		 &SoundSender sounds)
 {
 	unsigned long timeNow = timer.getTime();
 	int lastButton = 0;
+
+	//The working game loop
 	for(int i = 0; i < iterations; ++i)
 	{
-		int newbtn = timer.randomNumber(buttons.getsize() - 1)
-		while(newbtn == lastButton)
+		sounds.send(GAME_ON);
+		int newButton = buttons.getNewButton(lastButton);
+		while(timer.getTime() < timeNow + delayTime)
 		{
-			newbtn = timer.randomNumber(buttons.getsize() - 1)
+			while(buttons.wasButtonPress())
+			{
+				//Do Nothing
+			}
+			break;
 		}
+		unsigned long reflexTime = timer.getTime() -timeNow. 
+		if(buttons.wasRightButton())
+		{
+			sounds.send(CORRECT_BUTTON);
+			display.update(reflextime); 
+		}
+		else
+		{
+			sounds.send(WRONG_BUTTON);
+			display.update(WRONG_BUTTON);
+		}
+		lastButton = newButton;
 	}
+
 }
+
 
