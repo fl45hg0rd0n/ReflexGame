@@ -20,6 +20,8 @@ int ReflexGame::Play(unsigned long delayTime,
 			 		 &DisplayHelper display,
 			 		 &SoundSender sounds)
 {
+	sounds.send(REFLEX_GAME_BOOTUP);
+	timer.waitFor(REFLEX_GAME_BOOTUP);
 	unsigned long timeNow = timer.getTime();
 	int lastButton = 0;
 
@@ -27,20 +29,22 @@ int ReflexGame::Play(unsigned long delayTime,
 	for(int i = 0; i < iterations; ++i)
 	{
 		sounds.send(GAME_ON);
+		display.update(GAME_ON);
+		timer.waitFor(GAME_ON)
 		int newButton = buttons.getNewButton(lastButton);
 		while(timer.getTime() < timeNow + delayTime)
 		{
-			while(buttons.wasButtonPress())
+			if(buttons.wasButtonPress())
 			{
-				//Do Nothing
+				break;
 			}
-			break;
 		}
-		unsigned long reflexTime = timer.getTime() -timeNow. 
+		unsigned long reflexTime = timer.getTime() - timeNow;
 		if(buttons.wasRightButton())
 		{
+		    timer.waitFor(CORRECT_BOTTON);
 			sounds.send(CORRECT_BUTTON);
-			display.update(reflextime); 
+			display.update(CORRECT_BUTTON, reflextime); 
 		}
 		else
 		{
@@ -49,7 +53,4 @@ int ReflexGame::Play(unsigned long delayTime,
 		}
 		lastButton = newButton;
 	}
-
 }
-
-

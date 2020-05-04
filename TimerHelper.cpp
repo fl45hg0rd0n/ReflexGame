@@ -8,14 +8,20 @@ TimerHelper::TimerHelper()
 TimerHelper::~TimerHelper()
 	{};
 
-
 unsigned long TimerHelper::getTime()
 {
 	return micros();
 };
 
-
 int TimerHelper::randomNumber(int _max)
 {
 	return random(_max);
 }; 
+
+void TimerHelper::waitFor(SoundMessage song)
+{
+	switch(song){
+		case():
+		
+	}
+};

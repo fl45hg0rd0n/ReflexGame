@@ -37,10 +37,11 @@ enum SoundMessage
    SPEED_GAME_BOOTUP,
    GAME_ON,
    NEW_BUTTON,
-   CORRECT_BUTTONn ,
+   CORRECT_BUTTONN,
    WRONG_BUTTON,
    TOO_SLOW,
-   AGAIN
+   AGAIN,
+   STOP
 };
 
 

@@ -25,3 +25,5 @@ private:
    GameState m_state;
 
 };
+
+#endif

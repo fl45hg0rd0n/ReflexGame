@@ -10,6 +10,12 @@
 #include gameDefines.h
 #include "Arduino.h"
 
+#define BUTTON_ONE    0b10000000
+#define BUTTON_TWO    0b01000000
+#define BUTTON_THREE  0b00100000
+#define BUTTON_FOUR   0b00010000
+#define BUTTON_FIVE   0b00001000
+ 
 class ButtonHelper{
 public:
 
