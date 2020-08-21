@@ -11,11 +11,15 @@ public:
 	~TimerHelper();
 
 	unsigned long getTime();
+	int randomNumber(); 
+	void waitFor(SoundMessage);
 
 private:
 	unsigned long m_time;
 
 }
+
+
 
 
 #endif
